@@ -58,14 +58,14 @@ public class SrtData {
     }
 
     private static final List<TrainSchedule> ALL_SCHEDULES = new ArrayList<>();
-    private static String a="수서", b="동탄",c="평택지제",d="천안아산",e="오송",f="대전", g ="김천구미", h ="서대구", i ="동대구", j ="경주",
-            k ="울산", l ="부산", ha="수서 ", hb="동탄 ",hc="평택 ",hd="천안아산 ",he="오송 ",hf="대전 ", hg ="김천 ", hi="동대구 ", hj="경주 ", hk="울산 ", hl="부산 ",
+    private static String a="수서", b="동탄",c="평택지제",d="천안아산",e="오송",f="대전", g ="김천구미", h ="서대구", i ="동대구", j ="경주", k ="울산", l ="부산",
+            ha="수서 ", hb="동탄 ",hc="평택 ",hd="천안아산 ",he="오송 ",hf="대전 ", hg ="김천 ", hi="동대구 ", hj="경주 ", hk="울산 ", hl="부산 ",
             m="공주",n="익산",o="정읍",p="광주송정",q="나주",r="목포", s="밀양", t="진영", u="창원중앙", v="창원", w="마산", x="진주",
             y="포항", z="전주",z2="남원",z3="곡성",z4="구례구",z5="순천",z6="여천",z7="여수EXPO";
-    private static int da=0,db=33,dc=61,dd=86, de=115,df=150,dg=224,dh,di=277,dj=326,dk=356,dl=407,
+    private static int da=0,db=33,dc=61,dd=86, de=115,df=150,dg=224, dh=274, di=277,dj=326,dk=356,dl=407,
                     dm=158, dn=204, dO=246, dp=296, dq=311, dr=361,
                     ds=332, dt=358, du=373, dv=383, dw=386, dx=436, dy=365,
-                    dz=229,dz2=283,dz3=301, dz4=321, dz5=349, dz6=374, dz7=384;
+                    dz=229,dz2=283,dz3=301, dz4=321, dz5=349, dz6=374, dz7=384, ddh=50;
 
     static {
 
@@ -159,16 +159,16 @@ public class SrtData {
         ALL_SCHEDULES.add(new TrainSchedule("305", train305, DayType.WEEKEND_ONLY));
 
         List<StationInfo> train306 = new ArrayList<>();
-        train306.add(new StationInfo(l, "05:50", -1*dl));
-        train306.add(new StationInfo(k, "06:13", -1*dk));
-        train306.add(new StationInfo(i, "06:38", -1*di));
+        train306.add(new StationInfo(hl, "05:50", -1*(dl+ddh)));
+        train306.add(new StationInfo(hk, "06:13", -1*(dk+ddh)));
+        train306.add(new StationInfo(hi, "06:38", -1*(di+ddh)));
         train306.add(new StationInfo(h, "06:47", -1*dh));
-        train306.add(new StationInfo(g, "07:10", -1*dg));
-        train306.add(new StationInfo(f, "07:35", -1*df));
-        train306.add(new StationInfo(e, "07:53", -1*de));
-        train306.add(new StationInfo(d, "08:06", -1*dd));
-        train306.add(new StationInfo(b, "08:24", -1*db));
-        train306.add(new StationInfo(a, "08:41", -1*da));
+        train306.add(new StationInfo(hg, "07:10", -1*dg));
+        train306.add(new StationInfo(hf, "07:35", -1*df));
+        train306.add(new StationInfo(he, "07:53", -1*de));
+        train306.add(new StationInfo(hd, "08:06", -1*dd));
+        train306.add(new StationInfo(hb, "08:24", -1*db));
+        train306.add(new StationInfo(ha, "08:41", -1*da));
         ALL_SCHEDULES.add(new TrainSchedule("306", train306, DayType.DAILY));
 
         List<StationInfo> train307 = new ArrayList<>();
@@ -206,16 +206,16 @@ public class SrtData {
         ALL_SCHEDULES.add(new TrainSchedule("309", train309, DayType.DAILY));
 
         List<StationInfo> train310 = new ArrayList<>();
-        train310.add(new StationInfo(l, "07:12", -1*dl));
-        train310.add(new StationInfo(k, "07:35", -1*dk));
-        train310.add(new StationInfo(i, "08:00", -1*di));
+        train310.add(new StationInfo(hl, "07:12", -1*(dl+ddh)));
+        train310.add(new StationInfo(hk, "07:35", -1*(dk+ddh)));
+        train310.add(new StationInfo(hi, "08:00", -1*(di+ddh)));
         train310.add(new StationInfo(h, "08:09", -1*dh));
-        train310.add(new StationInfo(g, "08:32", -1*dg));
-        train310.add(new StationInfo(f, "08:57", -1*df));
-        train310.add(new StationInfo(e, "09:15", -1*de));
-        train310.add(new StationInfo(d, "09:28", -1*dd));
-        train310.add(new StationInfo(c, "09:41", -1*dc));
-        train310.add(new StationInfo(a, "10:03", -1*da));
+        train310.add(new StationInfo(hg, "08:32", -1*dg));
+        train310.add(new StationInfo(hf, "08:57", -1*df));
+        train310.add(new StationInfo(he, "09:15", -1*de));
+        train310.add(new StationInfo(hd, "09:28", -1*dd));
+        train310.add(new StationInfo(hc, "09:41", -1*dc));
+        train310.add(new StationInfo(ha, "10:03", -1*da));
         ALL_SCHEDULES.add(new TrainSchedule("310", train310, DayType.DAILY));
 
         List<StationInfo> train311 = new ArrayList<>();
@@ -241,13 +241,13 @@ public class SrtData {
         ALL_SCHEDULES.add(new TrainSchedule("312", train312, DayType.DAILY));
 
         List<StationInfo> train313 = new ArrayList<>();
-        train313.add(new StationInfo(a, "08:00", da));
-        train313.add(new StationInfo(c, "08:23", dc));
-        train313.add(new StationInfo(f, "08:54", df));
+        train313.add(new StationInfo(ha, "08:00", da));
+        train313.add(new StationInfo(hc, "08:23", dc));
+        train313.add(new StationInfo(hf, "08:54", df));
         train313.add(new StationInfo(h, "09:37", dh));
-        train313.add(new StationInfo(i, "09:46", di));
-        train313.add(new StationInfo(k, "10:12", dk));
-        train313.add(new StationInfo(l, "10:34", dl));
+        train313.add(new StationInfo(hi, "09:46", di+ddh));
+        train313.add(new StationInfo(hk, "10:12", dk+ddh));
+        train313.add(new StationInfo(hl, "10:34", dl+ddh));
         ALL_SCHEDULES.add(new TrainSchedule("313", train313, DayType.DAILY));
 
         List<StationInfo> train314 = new ArrayList<>();
@@ -301,15 +301,15 @@ public class SrtData {
         ALL_SCHEDULES.add(new TrainSchedule("318", train318, DayType.DAILY));
 
         List<StationInfo> train319 = new ArrayList<>();
-        train319.add(new StationInfo(a, "09:05", da));
-        train319.add(new StationInfo(b, "09:23", db));
-        train319.add(new StationInfo(d, "09:41", dd));
-        train319.add(new StationInfo(f, "10:06", df));
+        train319.add(new StationInfo(ha, "09:05", da));
+        train319.add(new StationInfo(hb, "09:23", db));
+        train319.add(new StationInfo(hd, "09:41", dd));
+        train319.add(new StationInfo(hf, "10:06", df));
         train319.add(new StationInfo(h, "10:49", dh));
-        train319.add(new StationInfo(i, "10:58", di));
-        train319.add(new StationInfo(j, "11:18", dj));
-        train319.add(new StationInfo(k, "11:30", dk));
-        train319.add(new StationInfo(l, "11:52", dl));
+        train319.add(new StationInfo(hi, "10:58", di+ddh));
+        train319.add(new StationInfo(hj, "11:18", dj+ddh));
+        train319.add(new StationInfo(hk, "11:30", dk+ddh));
+        train319.add(new StationInfo(hl, "11:52", dl+ddh));
         ALL_SCHEDULES.add(new TrainSchedule("319", train319, DayType.DAILY));
 
         List<StationInfo> train320 = new ArrayList<>();
@@ -451,22 +451,22 @@ public class SrtData {
         ALL_SCHEDULES.add(new TrainSchedule("332", train332, DayType.DAILY));
 
         List<StationInfo> train333 = new ArrayList<>();
-        train333.add(new StationInfo(a, "12:50", da));
-        train333.add(new StationInfo(b, "13:08", db));
-        train333.add(new StationInfo(f, "13:45", df));
+        train333.add(new StationInfo(ha, "12:50", da));
+        train333.add(new StationInfo(hb, "13:08", db));
+        train333.add(new StationInfo(hf, "13:45", df));
         train333.add(new StationInfo(h, "14:27", dh));
-        train333.add(new StationInfo(i, "14:36", di));
-        train333.add(new StationInfo(l, "15:17", dl));
+        train333.add(new StationInfo(hi, "14:36", di+ddh));
+        train333.add(new StationInfo(hl, "15:17", dl+ddh));
         ALL_SCHEDULES.add(new TrainSchedule("333", train333, DayType.DAILY));
 
         List<StationInfo> train334 = new ArrayList<>();
-        train334.add(new StationInfo(l, "12:51", -1*dl));
-        train334.add(new StationInfo(j, "13:19", -1*dj));
-        train334.add(new StationInfo(i, "13:38", -1*di));
+        train334.add(new StationInfo(hl, "12:51", -1*(dl+ddh)));
+        train334.add(new StationInfo(hj, "13:19", -1*(dj+ddh)));
+        train334.add(new StationInfo(hi, "13:38", -1*(di+ddh)));
         train334.add(new StationInfo(h, "13:47", -1*dh));
-        train334.add(new StationInfo(f, "14:30", -1*df));
-        train334.add(new StationInfo(d, "14:54", -1*dd));
-        train334.add(new StationInfo(a, "15:23", -1*da));
+        train334.add(new StationInfo(hf, "14:30", -1*df));
+        train334.add(new StationInfo(hd, "14:54", -1*dd));
+        train334.add(new StationInfo(ha, "15:23", -1*da));
         ALL_SCHEDULES.add(new TrainSchedule("334", train334, DayType.DAILY));
 
         List<StationInfo> train335 = new ArrayList<>();
@@ -562,13 +562,13 @@ public class SrtData {
         ALL_SCHEDULES.add(new TrainSchedule("343", train343, DayType.DAILY));
 
         List<StationInfo> train344 = new ArrayList<>();
-        train344.add(new StationInfo(l, "14:47", -1*dl));
-        train344.add(new StationInfo(i, "15:28", -1*di));
+        train344.add(new StationInfo(hl, "14:47", -1*(dl+ddh)));
+        train344.add(new StationInfo(hi, "15:28", -1*(di+ddh)));
         train344.add(new StationInfo(h, "15:38", -1*dh));
-        train344.add(new StationInfo(g, "16:00", -1*dg));
-        train344.add(new StationInfo(f, "16:26", -1*df));
-        train344.add(new StationInfo(b, "17:02", -1*db));
-        train344.add(new StationInfo(a, "17:19", -1*da));
+        train344.add(new StationInfo(hg, "16:00", -1*dg));
+        train344.add(new StationInfo(hf, "16:26", -1*df));
+        train344.add(new StationInfo(hb, "17:02", -1*db));
+        train344.add(new StationInfo(ha, "17:19", -1*da));
         ALL_SCHEDULES.add(new TrainSchedule("344", train344, DayType.DAILY));
 
         List<StationInfo> train345 = new ArrayList<>();
@@ -591,13 +591,13 @@ public class SrtData {
         ALL_SCHEDULES.add(new TrainSchedule("346", train346, DayType.DAILY));
 
         List<StationInfo> train347 = new ArrayList<>();
-        train347.add(new StationInfo(a, "15:56", da));
-        train347.add(new StationInfo(b, "16:14", db));
-        train347.add(new StationInfo(f, "16:51", df));
+        train347.add(new StationInfo(ha, "15:56", da));
+        train347.add(new StationInfo(hb, "16:14", db));
+        train347.add(new StationInfo(hf, "16:51", df));
         train347.add(new StationInfo(h, "17:34", dh));
-        train347.add(new StationInfo(i, "17:43", di));
-        train347.add(new StationInfo(k, "18:09", dk));
-        train347.add(new StationInfo(l, "18:31", dl));
+        train347.add(new StationInfo(hi, "17:43", di+ddh));
+        train347.add(new StationInfo(hk, "18:09", dk+ddh));
+        train347.add(new StationInfo(hl, "18:31", dl+ddh));
         ALL_SCHEDULES.add(new TrainSchedule("347", train347, DayType.DAILY));
 
         List<StationInfo> train348 = new ArrayList<>();
@@ -676,13 +676,13 @@ public class SrtData {
         ALL_SCHEDULES.add(new TrainSchedule("354", train354, DayType.DAILY));
 
         List<StationInfo> train355 = new ArrayList<>();
-        train355.add(new StationInfo(a, "17:30", da));
-        train355.add(new StationInfo(f, "18:19", df));
+        train355.add(new StationInfo(ha, "17:30", da));
+        train355.add(new StationInfo(hf, "18:19", df));
         train355.add(new StationInfo(h, "19:02", dh));
-        train355.add(new StationInfo(i, "19:11", di));
-        train355.add(new StationInfo(j, "19:30", dj));
-        train355.add(new StationInfo(k, "19:43", dk));
-        train355.add(new StationInfo(l, "20:04", dl));
+        train355.add(new StationInfo(hi, "19:11", di+ddh));
+        train355.add(new StationInfo(hj, "19:30", dj+ddh));
+        train355.add(new StationInfo(hk, "19:43", dk+ddh));
+        train355.add(new StationInfo(hl, "20:04", dl+ddh));
         ALL_SCHEDULES.add(new TrainSchedule("355", train355, DayType.DAILY));
 
         List<StationInfo> train356 = new ArrayList<>();
@@ -919,15 +919,15 @@ public class SrtData {
         ALL_SCHEDULES.add(new TrainSchedule("377", train377, DayType.DAILY));
 
         List<StationInfo> train378 = new ArrayList<>();
-        train378.add(new StationInfo(l, "22:21", -1*dl));
-        train378.add(new StationInfo(k, "22:44", -1*dk));
-        train378.add(new StationInfo(j, "22:56", -1*dj));
-        train378.add(new StationInfo(i, "23:14", -1*di));
+        train378.add(new StationInfo(hl, "22:21", -1*(dl+ddh)));
+        train378.add(new StationInfo(hk, "22:44", -1*(dk+ddh)));
+        train378.add(new StationInfo(hj, "22:56", -1*(dj+ddh)));
+        train378.add(new StationInfo(hi, "23:14", -1*(di+ddh)));
         train378.add(new StationInfo(h, "23:24", -1*dh));
-        train378.add(new StationInfo(f, "24:06", -1*df));
-        train378.add(new StationInfo(e, "24:24", -1*de));
-        train378.add(new StationInfo(b, "24:49", -1*db));
-        train378.add(new StationInfo(a, "25:06", -1*da));
+        train378.add(new StationInfo(hf, "24:06", -1*df));
+        train378.add(new StationInfo(he, "24:24", -1*de));
+        train378.add(new StationInfo(hb, "24:49", -1*db));
+        train378.add(new StationInfo(ha, "25:06", -1*da));
         ALL_SCHEDULES.add(new TrainSchedule("378", train378, DayType.DAILY));
 
         List<StationInfo> train379 = new ArrayList<>();

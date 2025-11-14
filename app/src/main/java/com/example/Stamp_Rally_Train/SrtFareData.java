@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class SrtFareData {
     //h 들어간 변수는 서대구 경유 역 -> 요금이 달라짐
-    private static String a="수서", b="동탄",c="평택지제",d="천안아산",e="오송",f="대전", g ="김천구미", h ="서대구", i ="동대구", j ="경주",
-            k ="울산", l ="부산", ha="수서 ", hb="동탄 ",hc="평택 ",hd="천안아산 ",he="오송 ",hf="대전 ", hg ="김천 ", hi="동대구 ", hj="신경주 ", hk="울산 ", hl="부산 ",
+    private static String a="수서", b="동탄",c="평택지제",d="천안아산",e="오송",f="대전", g ="김천구미", h ="서대구", i ="동대구", j ="경주", k ="울산", l ="부산",
+            ha="수서 ", hb="동탄 ",hc="평택 ",hd="천안아산 ",he="오송 ",hf="대전 ", hg ="김천 ", hi="동대구 ", hj="신경주 ", hk="울산 ", hl="부산 ",
             m="공주",n="익산",o="정읍",p="광주송정",q="나주",r="목포", s="밀양", t="진영", u="창원중앙", v="창원", w="마산", x="진주",
             y="포항", z="전주",z2="남원",z3="곡성",z4="구례구",z5="순천",z6="여천",z7="여수EXPO";
     private static final Map<String, Map<String, int[]>> FARES = new HashMap<>();
@@ -14,50 +14,50 @@ public class SrtFareData {
     static {
         /*
 
-        Map<String, int[]> fromSuseo = new HashMap<>();
-        fromSuseo.put(a, new int[]{7500, 10900});    // 수서
-        fromSuseo.put(b, new int[]{7500, 10900});    // 동탄
-        fromSuseo.put(c, new int[]{7700, 11200});    // 평택
-        fromSuseo.put(d, new int[]{11300, 16400});   // 천안아산
-        fromSuseo.put(e, new int[]{15400, 22300});   // 오송
-        fromSuseo.put(f, new int[]{20100, 29100});   // 대전
-        fromSuseo.put(g, new int[]{30300, 43900});   // 김천
-        fromSuseo.put(i, new int[]{37400, 54200});   // 동대구
-        fromSuseo.put(j, new int[]{42700, 61900});   // 경주
-        fromSuseo.put(k, new int[]{46800, 67900});   // 울산
-        fromSuseo.put(l, new int[]{52600, 76300});   // 부산
+        Map<String, int[]> fromDongtanH = new HashMap<>();
+        fromDongtanH.put(a, new int[]{7500, 10900});    // 수서
+        fromDongtanH.put(b, new int[]{7500, 10900});    // 동탄
+        fromDongtanH.put(c, new int[]{7700, 11200});    // 평택
+        fromDongtanH.put(d, new int[]{11300, 16400});   // 천안아산
+        fromDongtanH.put(e, new int[]{15400, 22300});   // 오송
+        fromDongtanH.put(f, new int[]{20100, 29100});   // 대전
+        fromDongtanH.put(g, new int[]{30300, 43900});   // 김천
+        fromDongtanH.put(i, new int[]{37400, 54200});   // 동대구
+        fromDongtanH.put(j, new int[]{42700, 61900});   // 경주
+        fromDongtanH.put(k, new int[]{46800, 67900});   // 울산
+        fromDongtanH.put(l, new int[]{52600, 76300});   // 부산
 
-        fromSuseo.put(h, new int[]{36400, 52800});  //서대전 경우 시
-        fromSuseo.put(hi, new int[]{37000, 53600});  //동대구
-        fromSuseo.put(hj, new int[]{42400, 61500});  //신경주
-        fromSuseo.put(hk, new int[]{46400, 57300});  //울산
-        fromSuseo.put(hl, new int[]{52200, 75700});  //부산
+        fromDongtanH.put(h, new int[]{36400, 52800});  //서대전 경우 시
+        fromDongtanH.put(hi, new int[]{37000, 53600});  //동대구
+        fromDongtanH.put(hj, new int[]{42400, 61500});  //신경주
+        fromDongtanH.put(hk, new int[]{46400, 57300});  //울산
+        fromDongtanH.put(hl, new int[]{52200, 75700});  //부산
 
-        fromSuseo.put(m, new int[]{21600, 31300});  //공주
-        fromSuseo.put(n, new int[]{28000, 40600});  //익산
-        fromSuseo.put(o, new int[]{33900, 49200});  //정읍
-        fromSuseo.put(p, new int[]{40700, 59000});  //광주송정
-        fromSuseo.put(q, new int[]{42100, 61000});  //나주
-        fromSuseo.put(r, new int[]{46500, 67400});  //목포
+        fromDongtanH.put(m, new int[]{21600, 31300});  //공주
+        fromDongtanH.put(n, new int[]{28000, 40600});  //익산
+        fromDongtanH.put(o, new int[]{33900, 49200});  //정읍
+        fromDongtanH.put(p, new int[]{40700, 59000});  //광주송정
+        fromDongtanH.put(q, new int[]{42100, 61000});  //나주
+        fromDongtanH.put(r, new int[]{46500, 67400});  //목포
 
-        fromSuseo.put(s, new int[]{42300, 61300});  //밀양
-        fromSuseo.put(t, new int[]{44400, 64400});  //진영
-        fromSuseo.put(u, new int[]{45600, 66100});  //창원중앙
-        fromSuseo.put(v, new int[]{46500, 67400});  //창원
-        fromSuseo.put(w, new int[]{46900, 68000});  //마산
-        fromSuseo.put(x, new int[]{51100, 74100});  //진주
+        fromDongtanH.put(s, new int[]{42300, 61300});  //밀양
+        fromDongtanH.put(t, new int[]{44400, 64400});  //진영
+        fromDongtanH.put(u, new int[]{45600, 66100});  //창원중앙
+        fromDongtanH.put(v, new int[]{46500, 67400});  //창원
+        fromDongtanH.put(w, new int[]{46900, 68000});  //마산
+        fromDongtanH.put(x, new int[]{51100, 74100});  //진주
 
-        fromSuseo.put(y, new int[]{47200, 68400});  //포항
+        fromDongtanH.put(y, new int[]{47200, 68400});  //포항
 
-        fromSuseo.put(z, new int[]{30300, 43900});  //전주
-        fromSuseo.put(z2, new int[]{35200, 51000});  //남원
-        fromSuseo.put(z3, new int[]{36700, 53200});  //곡성
-        fromSuseo.put(z4, new int[]{38400, 55700});  //구례구
-        fromSuseo.put(z5, new int[]{41000, 59500});  //순천
-        fromSuseo.put(z6, new int[]{43100, 62500});  //여천
-        fromSuseo.put(z7, new int[]{43800, 63500});  //여수expo
+        fromDongtanH.put(z, new int[]{30300, 43900});  //전주
+        fromDongtanH.put(z2, new int[]{35200, 51000});  //남원
+        fromDongtanH.put(z3, new int[]{36700, 53200});  //곡성
+        fromDongtanH.put(z4, new int[]{38400, 55700});  //구례구
+        fromDongtanH.put(z5, new int[]{41000, 59500});  //순천
+        fromDongtanH.put(z6, new int[]{43100, 62500});  //여천
+        fromDongtanH.put(z7, new int[]{43800, 63500});  //여수expo
 
-        FARES.put(a, fromSuseo);
+        FARES.put(a, fromDongtanH);
 
         */
 
@@ -705,6 +705,187 @@ public class SrtFareData {
         fromYeoSu.put(z6, new int[]{7500, 10900});  //여천
 
         FARES.put(z7,fromYeoSu);
+
+        Map<String, int[]> fromSuseoH = new HashMap<>();
+        fromSuseoH.put(hb, new int[]{7500, 10900});    // 동탄
+        fromSuseoH.put(hc, new int[]{7700, 11200});    // 평택
+        fromSuseoH.put(hd, new int[]{11300, 16400});   // 천안아산
+        fromSuseoH.put(he, new int[]{15400, 22300});   // 오송
+        fromSuseoH.put(hf, new int[]{20100, 29100});  //대전
+        fromSuseoH.put(hg, new int[]{30300, 43900});  //김천
+        fromSuseoH.put(h, new int[]{36400, 52800});  //서대구
+        fromSuseoH.put(hi, new int[]{37000, 53600});  //동대구
+        fromSuseoH.put(hj, new int[]{42400, 61500});  //경주
+        fromSuseoH.put(hk, new int[]{46400, 67300});  //울산
+        fromSuseoH.put(hl, new int[]{52200, 75700});  //부산
+
+        FARES.put(ha, fromSuseoH);
+
+        Map<String, int[]> fromDongtanH = new HashMap<>();
+        fromDongtanH.put(ha, new int[]{7500, 10900});    // 수서
+        fromDongtanH.put(hc, new int[]{7500, 10900});    // 평택
+        fromDongtanH.put(hd, new int[]{7500, 10900});   // 천안아산
+        fromDongtanH.put(he, new int[]{10700, 15500});   // 오송
+        fromDongtanH.put(hf, new int[]{15400, 22300});  //대전
+        fromDongtanH.put(hg, new int[]{25700, 37300});  //김천
+        fromDongtanH.put(h, new int[]{31800, 46100});  //서대구
+        fromDongtanH.put(hi, new int[]{32500, 47100});  //동대구
+        fromDongtanH.put(hj, new int[]{37800, 54800});  //경주
+        fromDongtanH.put(hk, new int[]{41700, 60500});  //울산
+        fromDongtanH.put(hl, new int[]{47700, 69200});  //부산
+
+        FARES.put(hb, fromDongtanH);
+
+        Map<String, int[]> fromPyeongtaekH = new HashMap<>();
+        fromPyeongtaekH.put(ha, new int[]{7500, 10900});    // 수서
+        fromPyeongtaekH.put(hb, new int[]{7500, 10900});    // 동탄
+        fromPyeongtaekH.put(hd, new int[]{7500, 10900});   // 천안아산
+        fromPyeongtaekH.put(he, new int[]{7700, 11200});   // 오송
+        fromPyeongtaekH.put(hf, new int[]{12400, 18000});  //대전
+        fromPyeongtaekH.put(hg, new int[]{22800, 33100});  //김천
+        fromPyeongtaekH.put(h, new int[]{28800, 41800});  //서대구
+        fromPyeongtaekH.put(hi, new int[]{29500, 42800});  //동대구
+        fromPyeongtaekH.put(hj, new int[]{34900, 50600});  //경주
+        fromPyeongtaekH.put(hk, new int[]{38800, 56300});  //울산
+        fromPyeongtaekH.put(hl, new int[]{44700, 64800});  //부산
+
+        FARES.put(hc, fromPyeongtaekH);
+
+        Map<String, int[]> fromCheonanH = new HashMap<>();
+        fromCheonanH.put(ha, new int[]{11300, 16400});    // 수서
+        fromCheonanH.put(hb, new int[]{7500, 10900});    // 동탄
+        fromCheonanH.put(hc, new int[]{7500, 10900});    // 평택
+        fromCheonanH.put(he, new int[]{7500, 10900});   // 오송
+        fromCheonanH.put(hf, new int[]{8800, 12800});  //대전
+        fromCheonanH.put(hg, new int[]{19200, 27800});  //김천
+        fromCheonanH.put(h, new int[]{25200, 36500});  //서대구
+        fromCheonanH.put(hi, new int[]{25900, 37600});  //동대구
+        fromCheonanH.put(hj, new int[]{31400, 45500});  //경주
+        fromCheonanH.put(hk, new int[]{35400, 51300});  //울산
+        fromCheonanH.put(hl, new int[]{41200, 59700});  //부산
+
+        FARES.put(hd, fromCheonanH);
+
+        Map<String, int[]> fromOsongH = new HashMap<>();
+        fromOsongH.put(ha, new int[]{15400, 22300});    // 수서
+        fromOsongH.put(hb, new int[]{10700, 15500});    // 동탄
+        fromOsongH.put(hc, new int[]{7700, 11200});    // 평택
+        fromOsongH.put(hd, new int[]{7500, 10900});   // 천안아산
+        fromOsongH.put(hf, new int[]{7500, 10900});  //대전
+        fromOsongH.put(hg, new int[]{15100, 21900});  //김천
+        fromOsongH.put(h, new int[]{21300, 30900});  //서대구
+        fromOsongH.put(hi, new int[]{21900, 31800});  //동대구
+        fromOsongH.put(hj, new int[]{27400, 39700});  //경주
+        fromOsongH.put(hk, new int[]{31300, 45400});  //울산
+        fromOsongH.put(hl, new int[]{37300, 54100});  //부산
+
+        FARES.put(he, fromOsongH);
+
+        Map<String, int[]> fromDaejeonH = new HashMap<>();
+        fromDaejeonH.put(ha, new int[]{20100, 29100});    // 수서
+        fromDaejeonH.put(hb, new int[]{15400, 22300});    // 동탄
+        fromDaejeonH.put(hc, new int[]{12400, 18000});    // 평택
+        fromDaejeonH.put(hd, new int[]{8800, 12800});   // 천안아산
+        fromDaejeonH.put(he, new int[]{7500, 10900});   // 오송
+        fromDaejeonH.put(hg, new int[]{10400, 15100});  //김천
+        fromDaejeonH.put(h, new int[]{16600, 24100});  //서대구
+        fromDaejeonH.put(hi, new int[]{17200, 24900});  //동대구
+        fromDaejeonH.put(hj, new int[]{22800, 33100});  //경주
+        fromDaejeonH.put(hk, new int[]{26700, 38700});  //울산
+        fromDaejeonH.put(hl, new int[]{32600, 47300});  //부산
+
+        FARES.put(hf, fromDaejeonH);
+
+        Map<String, int[]> fromGimcheonH = new HashMap<>();
+        fromGimcheonH.put(ha, new int[]{30300, 43900});    // 수서
+        fromGimcheonH.put(hb, new int[]{25700, 37300});    // 동탄
+        fromGimcheonH.put(hc, new int[]{22800, 33100});    // 평택
+        fromGimcheonH.put(hd, new int[]{19200, 27800});   // 천안아산
+        fromGimcheonH.put(he, new int[]{15100, 21900});   // 오송
+        fromGimcheonH.put(hf, new int[]{10400, 15100});  //대전
+        fromGimcheonH.put(h, new int[]{7500, 10900});  //서대구
+        fromGimcheonH.put(hi, new int[]{7500, 10900});  //동대구
+        fromGimcheonH.put(hj, new int[]{12400, 18000});  //경주
+        fromGimcheonH.put(hk, new int[]{16400, 23800});  //울산
+        fromGimcheonH.put(hl, new int[]{22500, 32600});  //부산
+
+        FARES.put(hg, fromGimcheonH);
+
+        Map<String, int[]> fromSeodaeguH = new HashMap<>();
+        fromSeodaeguH.put(ha, new int[]{36400, 52800});    // 수서
+        fromSeodaeguH.put(hb, new int[]{31800, 46100});    // 동탄
+        fromSeodaeguH.put(hc, new int[]{28800, 41800});    // 평택
+        fromSeodaeguH.put(hd, new int[]{25200, 36500});   // 천안아산
+        fromSeodaeguH.put(he, new int[]{21300, 30900});   // 오송
+        fromSeodaeguH.put(hf, new int[]{16600, 24100});  //대전
+        fromSeodaeguH.put(hg, new int[]{7500, 10900});  //김천
+        fromSeodaeguH.put(hi, new int[]{7500, 10900});  //동대구
+        fromSeodaeguH.put(hj, new int[]{7500, 10900});  //경주
+        fromSeodaeguH.put(hk, new int[]{10300, 14900});  //울산
+        fromSeodaeguH.put(hl, new int[]{16300, 23600});  //부산
+
+        FARES.put(h, fromSeodaeguH);
+
+        Map<String, int[]> fromDongdaeguH = new HashMap<>();
+        fromDongdaeguH.put(ha, new int[]{37000, 53600});    // 수서
+        fromDongdaeguH.put(hb, new int[]{32500, 47100});    // 동탄
+        fromDongdaeguH.put(hc, new int[]{29500, 42800});    // 평택
+        fromDongdaeguH.put(hd, new int[]{25900, 37600});   // 천안아산
+        fromDongdaeguH.put(he, new int[]{21900, 31800});   // 오송
+        fromDongdaeguH.put(hf, new int[]{17200, 24900});  //대전
+        fromDongdaeguH.put(hg, new int[]{7500, 10900});  //김천
+        fromDongdaeguH.put(h, new int[]{7500, 10900});  //서대구
+        fromDongdaeguH.put(hj, new int[]{7500, 10900});  //경주
+        fromDongdaeguH.put(hk, new int[]{9500, 13800});  //울산
+        fromDongdaeguH.put(hl, new int[]{15600, 22600});  //부산
+
+        FARES.put(hi, fromDongdaeguH);
+
+        Map<String, int[]> fromGyeongjuH = new HashMap<>();
+        fromGyeongjuH.put(ha, new int[]{42400, 61500});    // 수서
+        fromGyeongjuH.put(hb, new int[]{37800, 54800});    // 동탄
+        fromGyeongjuH.put(hc, new int[]{34900, 50600});    // 평택
+        fromGyeongjuH.put(hd, new int[]{31400, 45500});   // 천안아산
+        fromGyeongjuH.put(he, new int[]{27400, 39700});   // 오송
+        fromGyeongjuH.put(hf, new int[]{22800, 33100});  //대전
+        fromGyeongjuH.put(hg, new int[]{12400, 18000});  //김천
+        fromGyeongjuH.put(h, new int[]{7500, 18000});  //서대구
+        fromGyeongjuH.put(hi, new int[]{7500, 10900});  //동대구
+        fromGyeongjuH.put(hk, new int[]{7500, 10900});  //울산
+        fromGyeongjuH.put(hl, new int[]{10100, 14600});  //부산
+
+        FARES.put(hj, fromGyeongjuH);
+
+        Map<String, int[]> fromUlsanH = new HashMap<>();
+        fromUlsanH.put(ha, new int[]{46400, 67300});    // 수서
+        fromUlsanH.put(hb, new int[]{41700, 60500});    // 동탄
+        fromUlsanH.put(hc, new int[]{38800, 56300});    // 평택
+        fromUlsanH.put(hd, new int[]{35400, 51300});   // 천안아산
+        fromUlsanH.put(he, new int[]{31300, 45400});   // 오송
+        fromUlsanH.put(hf, new int[]{26700, 38700});  //대전
+        fromUlsanH.put(hg, new int[]{16400, 23800});  //김천
+        fromUlsanH.put(h, new int[]{10300, 14900});  //서대구
+        fromUlsanH.put(hi, new int[]{9500, 13800});  //동대구
+        fromUlsanH.put(hj, new int[]{7500, 10900});  //경주
+        fromUlsanH.put(hl, new int[]{7500, 10900});  //부산
+
+        FARES.put(hk, fromUlsanH);
+
+        Map<String, int[]> fromBusanH = new HashMap<>();
+        fromBusanH.put(ha, new int[]{52200, 75700});    // 수서
+        fromBusanH.put(hb, new int[]{47700, 69200});    // 동탄
+        fromBusanH.put(hc, new int[]{44700, 64800});    // 평택
+        fromBusanH.put(hd, new int[]{41200, 59700});   // 천안아산
+        fromBusanH.put(he, new int[]{37300, 54100});   // 오송
+        fromBusanH.put(hf, new int[]{32600, 47300});  //대전
+        fromBusanH.put(hg, new int[]{22500, 32600});  //김천
+        fromBusanH.put(h, new int[]{16300, 23600});  //서대구
+        fromBusanH.put(hi, new int[]{15600, 22600});  //동대구
+        fromBusanH.put(hj, new int[]{10100, 14600});  //경주
+        fromBusanH.put(hk, new int[]{7500, 10900});  //울산
+
+        FARES.put(hl, fromBusanH);
+
     }
 
     public static int getFare(String startStationName, String endStationName, boolean isFirstClass) {
