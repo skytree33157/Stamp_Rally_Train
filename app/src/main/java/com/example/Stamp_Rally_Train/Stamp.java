@@ -129,8 +129,8 @@ public class Stamp extends Fragment {
     //fragment_stamp.xml과 연결, 좌표 데이터 입력
     private void initializeStations(View view) {
         Map<String, String> collectedStamps = loadCollectedStampsFromDb();
-        Station suseo = new Station("과기대", 37.635311, 127.075657, R.id.stamp_suseo);
-        //Station suseo = new Station("수서", 37.485539, 127.104436, R.id.stamp_suseo);
+        //Station suseo = new Station("과기대", 37.635311, 127.075657, R.id.stamp_suseo);
+        Station suseo = new Station("수서", 37.485539, 127.104436, R.id.stamp_suseo);
         Station dongtan = new Station("동탄", 37.199317, 127.097006, R.id.stamp_dongtan);
         Station pyeongtaek = new Station("평택지제", 37.018771, 127.069925, R.id.stamp_pyeongtaek);
         Station cheonan = new Station("천안아산", 36.79391, 127.10445, R.id.stamp_cheonan);
@@ -440,7 +440,7 @@ public class Stamp extends Fragment {
         if (station == null || station.textView == null) return;
         switch (station.status) {
             case NOT_ARRIVED:
-                station.textView.setText(station.name + "\n(미도착)");
+                station.textView.setText(station.name + "\n(미수집)");
                 station.textView.setBackgroundColor(Color.parseColor("#F0F0F0"));
                 station.textView.setTextColor(Color.parseColor("#333333"));
                 break;
@@ -450,7 +450,7 @@ public class Stamp extends Fragment {
                 station.textView.setTextColor(Color.parseColor("#2E7D32"));
                 break;
             case COLLECTED:
-                station.textView.setText(station.name + "\n(사진 보기)");
+                station.textView.setText(station.name + "\n(수집 완료)");
                 station.textView.setBackgroundColor(Color.parseColor("#FFCDD2"));
                 station.textView.setTextColor(Color.parseColor("#D32F2F"));
                 break;

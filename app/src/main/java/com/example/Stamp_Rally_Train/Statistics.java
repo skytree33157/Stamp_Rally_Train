@@ -86,7 +86,7 @@ public class Statistics extends Fragment implements SrtListAdapter.OnTripDeleteL
 
     //팝업창 메소드
     private void showAddSrtTripDialog() {
-        final Dialog dialog = new Dialog(getContext());
+        final Dialog dialog = new Dialog(getContext(),com.google.android.material.R.style.Theme_Material3_Light_Dialog_Alert);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.popup_add_srt_info);
 
@@ -101,15 +101,15 @@ public class Statistics extends Fragment implements SrtListAdapter.OnTripDeleteL
         final TextView tvEndTime = dialog.findViewById(R.id.tv_end_station_time);
         final CheckBox checkboxFirstClass = dialog.findViewById(R.id.checkbox_first_class);
 
-        trainAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item);
+        trainAdapter = new ArrayAdapter<>(dialog.getContext(), android.R.layout.simple_spinner_item);
         trainAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTrainNum.setAdapter(trainAdapter);
 
-        startStationAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item);
+        startStationAdapter = new ArrayAdapter<>(dialog.getContext(), android.R.layout.simple_spinner_item);
         startStationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerStartStation.setAdapter(startStationAdapter);
 
-        endStationAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item);
+        endStationAdapter = new ArrayAdapter<>(dialog.getContext(), android.R.layout.simple_spinner_item);
         endStationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerEndStation.setAdapter(endStationAdapter);
 
@@ -353,7 +353,7 @@ public class Statistics extends Fragment implements SrtListAdapter.OnTripDeleteL
 
    //'입력한 데이터 보기' 팝업창
     private void showTripListDialog() {
-        final Dialog dialog = new Dialog(getContext());
+        final Dialog dialog = new Dialog(getContext(),com.google.android.material.R.style.Theme_Material3_Light_Dialog_Alert);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.saved_info_list);
 
@@ -405,7 +405,7 @@ public class Statistics extends Fragment implements SrtListAdapter.OnTripDeleteL
         barChart.setDrawGridBackground(false);
         barChart.setDrawBarShadow(false);
         barChart.setFitBars(true);
-
+        barChart.setExtraBottomOffset(10f);
         XAxis xAxis = barChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
@@ -475,7 +475,17 @@ public class Statistics extends Fragment implements SrtListAdapter.OnTripDeleteL
             public String getFormattedValue(float value) {
                 int index = (int) value;
                 if (index >= 0 && index < labels.size()) {
-                    return labels.get(index);
+                    String originalLabel = labels.get(index);
+                    try {
+                        String[] parts = originalLabel.split("-");
+                        if (parts.length == 2) {
+                            return parts[0] + "년 " + Integer.parseInt(parts[1]) + "월";
+                        } else {
+                            return originalLabel;
+                        }
+                    } catch (Exception e) {
+                        return originalLabel;
+                    }
                 }
                 return "";
             }

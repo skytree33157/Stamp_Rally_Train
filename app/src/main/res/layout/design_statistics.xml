@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white">
 
     <TextView
         android:layout_width="wrap_content"
@@ -11,7 +12,8 @@
         android:text="SRT 탑승 기록 통계"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/black"/>
 
     <Button
         android:id="@+id/btn_add_srt_trip"
