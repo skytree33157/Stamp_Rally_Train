@@ -3,6 +3,8 @@ package com.example.Stamp_Rally_Train;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -420,7 +422,19 @@ public class Statistics extends Fragment implements SrtListAdapter.OnTripDeleteL
         barChart.setNoDataText("버튼을 눌러 통계를 확인하세요.");
         barChart.setNoDataTextColor(Color.BLACK);
     }
-
+    private void setCustomBarImage(int resId) {
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
+        if(bitmap==null)
+            return;
+        ImageChart customRenderer = new ImageChart(
+                barChart,
+                barChart.getAnimator(),
+                barChart.getViewPortHandler(),
+                bitmap
+        );
+        barChart.setRenderer(customRenderer);
+        customRenderer.initBuffers();
+    }
     private void loadBarChartData(View v) {
         Map<String, long[]> statsMap = dbHelper.getMonthlyStatsGrouped();
 
@@ -434,6 +448,26 @@ public class Statistics extends Fragment implements SrtListAdapter.OnTripDeleteL
         ArrayList<BarEntry> entries = new ArrayList<>();
         ArrayList<String> labels = new ArrayList<>();
 
+        int viewId = v.getId();
+        int imageResId = 0;
+        String label = "";
+        int color = Color.BLACK;
+
+
+        if (viewId == R.id.btn_show_srt_distance) {
+            imageResId = R.drawable.rail;
+            label = "월별 이동 거리 (km)";
+            color = Color.rgb(0, 150, 136);
+        } else if (viewId == R.id.btn_show_srt_time) {
+            imageResId = R.drawable.train;
+            label = "월별 이동 시간 (분)";
+            color = Color.rgb(255, 152, 0);
+        } else if (viewId == R.id.btn_show_srt_fare) {
+            imageResId = R.drawable.money;
+            label = "월별 내가 쓴 돈 (원)";
+            color = Color.rgb(211, 47, 47);
+        }
+
         int i = 0;
         for (Map.Entry<String, long[]> entry : statsMap.entrySet()) {
             String monthLabel = entry.getKey();
@@ -441,30 +475,20 @@ public class Statistics extends Fragment implements SrtListAdapter.OnTripDeleteL
             long totalDist = entry.getValue()[1];
             long totalFare = entry.getValue()[2];
 
-            int id = v.getId();
-            if (id == R.id.btn_show_srt_distance) {
+            if (viewId == R.id.btn_show_srt_distance) {
                 entries.add(new BarEntry(i, totalDist));
-            } else if (id == R.id.btn_show_srt_time) {
+            } else if (viewId == R.id.btn_show_srt_time) {
                 entries.add(new BarEntry(i, totalTime));
-            } else if (id == R.id.btn_show_srt_fare) {
+            } else if (viewId == R.id.btn_show_srt_fare) {
                 entries.add(new BarEntry(i, totalFare));
             }
 
             labels.add(monthLabel.substring(2));
             i++;
         }
-        BarDataSet dataSet;
-        int id = v.getId();
-        if (id == R.id.btn_show_srt_distance) {
-            dataSet = new BarDataSet(entries, "월별 이동 거리 (km)");
-            dataSet.setColor(Color.rgb(0, 150, 136));
-        } else if (id == R.id.btn_show_srt_time) {
-            dataSet = new BarDataSet(entries, "월별 이동 시간 (분)");
-            dataSet.setColor(Color.rgb(255, 152, 0));
-        } else {
-            dataSet = new BarDataSet(entries, "월별 내가 쓴 돈 (원)");
-            dataSet.setColor(Color.rgb(211, 47, 47));
-        }
+
+        BarDataSet dataSet = new BarDataSet(entries, label);
+        dataSet.setColor(color);
         dataSet.setValueTextSize(12f);
 
         BarData barData = new BarData(dataSet);
@@ -492,6 +516,8 @@ public class Statistics extends Fragment implements SrtListAdapter.OnTripDeleteL
         });
 
         barChart.setData(barData);
+        if(imageResId!=0)
+            setCustomBarImage(imageResId);
         barChart.animateY(1000);
         barChart.invalidate();
     }

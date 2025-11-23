@@ -51,8 +51,8 @@ public class Stamp extends Fragment {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
     private static final double TARGET_RADIUS_METERS = 100.0;
-    private static final long LOCATION_UPDATE_INTERVAL = 5000;
-    private static final long FASTEST_LOCATION_UPDATE_INTERVAL = 2000;
+    private static final long LOCATION_UPDATE_INTERVAL = 1000;
+    private static final long FASTEST_LOCATION_UPDATE_INTERVAL = 1000;
     private static final int RESIZED_IMAGE_WIDTH = 1080;
     private FusedLocationProviderClient fusedLocationClient;
     private LocationCallback locationCallback;
@@ -129,7 +129,6 @@ public class Stamp extends Fragment {
     //fragment_stamp.xml과 연결, 좌표 데이터 입력
     private void initializeStations(View view) {
         Map<String, String> collectedStamps = loadCollectedStampsFromDb();
-        //Station suseo = new Station("과기대", 37.635311, 127.075657, R.id.stamp_suseo);
         Station suseo = new Station("수서", 37.485539, 127.104436, R.id.stamp_suseo);
         Station dongtan = new Station("동탄", 37.199317, 127.097006, R.id.stamp_dongtan);
         Station pyeongtaek = new Station("평택지제", 37.018771, 127.069925, R.id.stamp_pyeongtaek);
