@@ -9,6 +9,7 @@
 * [사용법](#사용법)
 * [프로젝트 구조](#프로젝트-구조)
 * [Reference](#reference)
+* [License](#license)
 ---
  
 ## 주요 기능
@@ -114,3 +115,8 @@ saved_info_list.xml
 
 * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) : 탑승 기록을 시각화하기 위해 사용했습니다.
 
+---
+
+## License
+
+* 이 프로젝트는 [MIT LICNESE](LICENSE)를 따릅니다
